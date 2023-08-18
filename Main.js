@@ -1,6 +1,6 @@
 //Importa ao Clinete do Whatzap
 //Importa o Gerador de Qr apartir de um codigo no terminal 
-const { Client, LocalAuth ,LegacySessionAuth} = require('whatsapp-web.js');
+const { Client, LocalAuth, LegacySessionAuth, Buttons, List, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 //
@@ -20,8 +20,8 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 //Respostar altomaticas
-client.on('message',message =>{
-    AutoResposta(message,client)
+client.on('message', message => { 
+        AutoResposta(message, client)
 });
 
 client.initialize();

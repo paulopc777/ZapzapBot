@@ -5,5 +5,8 @@
   },
   "scripts": {
     "run": "node ./Main.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
   }
 }
