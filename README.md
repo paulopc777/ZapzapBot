@@ -12,7 +12,7 @@ Backend:
 - Novas Rota para respostas funcionando(Main.js precissa ser reiniciado)
 
 
-X:Não e possivel adicionar novas repostas pelo font...Tranbalahndo nisso 
+X:Não e possivel adicionar novas repostas pelo font...Trabalhando nisso 
 
 
 
