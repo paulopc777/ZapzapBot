@@ -34,29 +34,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var Buttons = require('whatsapp-web.js').Buttons;
+var JsonTexto = require('../db/RespostaTexto.json');
 var TimeDelay = 8000; //Delay de 8s
 var delay = function () {
     return new Promise(function (resolve) { return setTimeout(resolve, TimeDelay); });
 };
-var Texts = "desculpa, mas o produto que você estava procurando não está mais disponível em estoque. No entanto, temos uma variedade de outros produtos em nossa loja que podem atender às suas necessidades. Se você estiver interessado, posso fornecer mais informações sobre algumas alternativas excelentes. Você está aberto a explorar outras opções?";
-var PerguntaAuto = ['ping', 'bom dia'];
-var RespostaAuto = ['Pong', 'Bom dia como posso ajudar ?'];
-var PerguntaMatch = [
-    'esse item',
-    'esse produto'
-];
-var RespostaMatch = [
-    'Sim está disponivel tem interesse ?',
-    'Sim está disponivel tem interesse ?'
-];
-var PordutosBanidos = [
-    'item/318081407304941',
-    '318081407304942'
-];
-var RespostaBanido = [
-    'nada',
-    Texts
-];
+var db = JSON.stringify(JsonTexto);
+var ddb = JSON.parse(db);
+var PerguntaAuto = ddb.PerguntaAuto;
+var RespostaAuto = ddb.RespostaAuto;
+var PerguntaConten = ddb.PerguntaContem;
+var RespostaConten = ddb.RespostaContem;
+var PerguntaBanido = ddb.ProdutosBanidos;
+var RespostaBanido = ddb.RespostaBanido;
 function AutoResposta(message, client) {
     return __awaiter(this, void 0, void 0, function () {
         //message.body.toLowerCase()
@@ -70,8 +61,8 @@ function AutoResposta(message, client) {
             }
         }
         function RespostaB(Mensagem, message) {
-            for (var index = 0; index < PordutosBanidos.length; index++) {
-                var element = PordutosBanidos[index];
+            for (var index = 0; index < PerguntaBanido.length; index++) {
+                var element = PerguntaBanido[index];
                 if (Mensagem.match(element)) {
                     message.reply(RespostaBanido[1]);
                     RespostaEnviada = true;
@@ -79,42 +70,28 @@ function AutoResposta(message, client) {
             }
         }
         function RespostaM(Mensagem, message) {
-            for (var i = 0; i < PerguntaMatch.length; i++) {
-                var element2 = PerguntaMatch[i];
+            for (var i = 0; i < PerguntaConten.length; i++) {
+                var element2 = PerguntaConten[i];
                 if (Mensagem.match(element2)) {
-                    message.reply(RespostaMatch[i]);
+                    message.reply(RespostaConten[i]);
                     RespostaEnviada = true;
                 }
             }
         }
         var RespostaEnviada, Mensagem;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    RespostaEnviada = false;
-                    Mensagem = message.body.toLowerCase();
-                    if (!(RespostaEnviada == false)) return [3 /*break*/, 2];
-                    delay();
-                    return [4 /*yield*/, RespostaA(Mensagem, message)];
-                case 1:
-                    _a.sent();
-                    _a.label = 2;
-                case 2:
-                    if (!(RespostaEnviada == false)) return [3 /*break*/, 4];
-                    delay();
-                    return [4 /*yield*/, RespostaB(Mensagem, message)];
-                case 3:
-                    _a.sent();
-                    _a.label = 4;
-                case 4:
-                    if (!(RespostaEnviada == false)) return [3 /*break*/, 6];
-                    delay();
-                    return [4 /*yield*/, RespostaM(Mensagem, message)];
-                case 5:
-                    _a.sent();
-                    _a.label = 6;
-                case 6: return [2 /*return*/];
+            RespostaEnviada = false;
+            Mensagem = message.body.toLowerCase();
+            if (RespostaEnviada == false) {
+                RespostaA(Mensagem, message);
             }
+            if (RespostaEnviada == false) {
+                RespostaB(Mensagem, message);
+            }
+            if (RespostaEnviada == false) {
+                RespostaM(Mensagem, message);
+            }
+            return [2 /*return*/];
         });
     });
 }

@@ -1,0 +1,25 @@
+
+.Header{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+nav{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.Green{
+    color: green;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition:all .2s ease-in-out;
+}
+a:hover{
+    color: rgb(49, 167, 2);
+}
