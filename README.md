@@ -6,10 +6,10 @@
 - QRcode no navegador funcional
 - Stadtus sempre atualizado 
 - Adicionando novas respostas
-- >**Com três tipos**
-- >Resposta automatica
-- >Resposta casso contenha texto especifico
-- >Produtos Banidos com resposta altomatica
+ >**Com três tipos**
+ >Resposta automatica
+ >Resposta casso contenha texto especifico
+ >Produtos Banidos com resposta altomatica
 
 
 **Backend:**
