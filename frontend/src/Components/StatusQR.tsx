@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import QRCode from 'react-qr-code';
 import Onff from './on';
 
@@ -7,16 +7,37 @@ import Onff from './on';
 
 
 function StatusQr() {
-  const [Repo, setRepo] = useState('')
+
+  const [Repo, setRepo] = useState('Deslogado')
 
   function fetApiData() {
     fetch('http://localhost:3001/')
       .then((response) => response.json())
       .then((data) => setRepo(data.qr))
       .catch(() => setRepo("Back off"))
+
+    setTimeout(check, 10000)
   }
 
- // setInterval(fetApiData, 2000);
+  async function check() {
+
+    if (Repo === "Deslogado") {
+      fetApiData()
+      console.log('Deslogado')
+
+    } else if (Repo === 'Carregando...') {
+
+      fetApiData()
+      console.log(' Carregando ')
+
+    } else {
+
+    }
+  }
+
+  useEffect(() => {
+    check()
+  })
 
   function elses() {
     if (Repo === 'Logado') {
@@ -38,7 +59,7 @@ function StatusQr() {
   return (
     <div>
       <div className="mb-1">
-        {Onff()}
+        {Onff(Repo)}
       </div>
       <div>
         <div className="div-center">

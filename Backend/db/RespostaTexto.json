@@ -1,1 +1,26 @@
-{"PerguntaAuto":["ping","bom dia","kk"],"RespostaAuto":["Pong","Bom dia como posso ajudar ?","kk"],"ProdutosBanidos":["item/318081407304941","318081407304942"],"RespostaBanido":["nada","desculpa, mas o produto que você estava procurando não está mais disponível em estoque. No entanto, temos uma variedade de outros produtos em nossa loja que podem atender às suas necessidades. Se você estiver interessado, posso fornecer mais informações sobre algumas alternativas excelentes. Você está aberto a explorar outras opções?"],"PerguntaContem":["esse item","esse produto"],"RespostaContem":["Sim está disponivel tem interesse ?","Sim está disponivel tem interesse ?"]}
+{
+    "PerguntaAuto": [
+        "ping",
+        "bom dia"
+    ],
+    "RespostaAuto": [
+        "Pong",
+        "Bom dia como posso ajudar ?"
+    ],
+    "ProdutosBanidos": [
+        "item/318081407304941",
+        "318081407304942"
+    ],
+    "RespostaBanido": [
+        "nada",
+        "desculpa, mas o produto que você estava procurando não está mais disponível em estoque. No entanto, temos uma variedade de outros produtos em nossa loja que podem atender às suas necessidades. Se você estiver interessado, posso fornecer mais informações sobre algumas alternativas excelentes. Você está aberto a explorar outras opções?"
+    ],
+    "PerguntaContem": [
+        "esse item",
+        "esse produto"
+    ],
+    "RespostaContem": [
+        "Sim está disponivel tem interesse ?",
+        "Sim está disponivel tem interesse ?"
+    ]
+}

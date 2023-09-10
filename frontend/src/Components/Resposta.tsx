@@ -1,71 +1,54 @@
 import React, { useState } from 'react'
-import { useForm } from "react-hook-form";
-
-
-
+import axios from 'axios';
 
 function Resposta() {
-    //
-    const [Data, setData] = useState({
-        pergunta: '',
-        resposta: '',
-        tipo: ''
-    })
+
+    const [Pergunta, setPergunta] = useState('');
+    const [Resposta, setResposta] = useState('');
+    const [Tipo, setTipo] = useState('');
 
 
-    //
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+    async function Enviar() {
 
-    async function st(data: any) {
-        await setData(data)
-    }
-    async function as(Data:any) {
+        console.log(JSON.stringify(Resposta))
 
-        fetch("http://localhost:3001/recauto", {
-            method: "POST",
-            mode: 'cors',
-            body: JSON.stringify(Data)
+        await axios.post('http://localhost:3001/recauto', {
+            pergunta: Pergunta,
+            resposta: Resposta,
+            tipo: Tipo
         })
-
-
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.error(error);
+              });
     }
-    const onSubmit = async (data: any) => {
-
-        await st(data)
-        await as(data)
-        console.log(Data)
-    };
-
 
     return (
         <div className='div-center'>
-            <form className='w-26'  method='post'  action='http://localhost:3001/recauto'>
+            <form className='w-26'>
                 <div>
-                    <input type="text" placeholder='Pergunta' name='pergunta'   />
-                    <input type="text" placeholder='Resposta' name='resposta'  />
+                    <input type="text" placeholder='Pergunta' name='pergunta' onChange={e => setPergunta(e.target.value)} required />
+                    <input type="text" placeholder='Resposta' name='resposta' onChange={e => setResposta(e.target.value)} required />
                 </div>
                 <div>
                     <ul>
                         <li>
-                            <input type="radio" id='auto' value="auto"  name='tipo'/>
+                            <input type="radio" id='auto' value="auto" name='tipo' onChange={e => setTipo(e.target.value)} />
                             <label htmlFor='auto'>Resposta automatica</label>
                         </li>
                         <li>
-                            <input type="radio" value="mach" id='mach'  name='tipo'/>
+                            <input type="radio" value="mach" id='mach' name='tipo' onChange={e => setTipo(e.target.value)} />
                             <label htmlFor="mach">Resposta caso contenha</label>
                         </li>
                         <li>
-                            <input type="radio" value="banido" id='banido'  name='tipo' />
+                            <input type="radio" value="banido" id='banido' name='tipo' onChange={e => setTipo(e.target.value)} />
                             <label htmlFor="banido">Pordutos Banidos</label>
                         </li>
                     </ul>
                 </div>
-                <input type="submit" />
-                <button type='submit'>enviar</button>
+                <button onClick={Enviar} >Enviar</button>
             </form>
         </div>
     )

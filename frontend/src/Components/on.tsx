@@ -1,37 +1,33 @@
 
-import React, { useState } from 'react'
 import '../App.css';
 
-function Onff() {
+function Onff(Repo: any) {
 
-    const [Repo, setRepo] = useState("off")
+    let color1 = 'red w-26 Text';
+    let text = '';
 
-    function fetApiData() {
-        fetch('http://localhost:3001/status')
-            .then((response) => response.json())
-            .then((data) => setRepo(data.status))
-            .catch((Erro) => console.log('Back off'))
+    if (Repo === 'Deslogado'){
+         color1 = 'red w-26 Text';
+         text = "Deslogado";
+    }else if(Repo === 'Back off'){
+        color1 = 'red w-26 Text';
+        text = "Back off";
+    }else if(Repo.length > 13 ){
+        color1 = 'gren w-26 Text';
+        text = "Leia o QR";
+    }else if(Repo === 'Logado'){
+        color1 = 'gren w-26 Text';
+        text = "On";
     }
-    fetApiData()
-    //setInterval(fetApiData, 2000);
-
-    function color(){
-        if(Repo === "On"){
-            return 'gren w-26 Text'
-        }else{
-            return 'red w-26 Text'
-        }
-    }
-
-    return (
-        <div >
-            <div className='div-center ' >
-                <h2 className={color()}>
-                    {Repo}
-                </h2>
+        return (
+            <div >
+                <div className='div-center ' >
+                    <h2 className={color1}>
+                        {text}
+                    </h2>
+                </div>
             </div>
-        </div>
-    )
-    
+        )
+
 }
 export default Onff;

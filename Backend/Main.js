@@ -41,11 +41,11 @@ client.on('message', message => {
 
 });
 
-
 client.initialize();
 
 //
 app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({ "qr": qrcodesave })
@@ -65,16 +65,16 @@ app.post('/off', async (req, res) => {
     await client.initialize()
 })
 app.post('/send', async (req, res) => {
-    let { message, number } = req.query;
+    let { message, number } = req.body;
     client.sendMessage()
     res.send('ok')
 })
 app.post('/recauto', async (req, res) => {
-    const { pergunta, resposta, tipo } = req.body
-    await Gravarnojson(pergunta, resposta, tipo)
-    res.send('ok')
-})
 
+    const { pergunta, resposta, tipo } = req.body;
+    
+    await Gravarnojson(pergunta, resposta, tipo)
+})
 app.listen(porta, () => {
     console.log(`Server rodando na ${porta}`);
 });
