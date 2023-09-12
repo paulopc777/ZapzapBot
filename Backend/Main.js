@@ -8,8 +8,8 @@ const fs = require('fs');
 //
 const app = express();
 //
-const AutoResposta = require('./Modules/AutoRes.js');
-const Gravarnojson = require('./Modules/GravarnaDb.js')
+const AutoResposta = require('./Components/AutoRes.js');
+const Gravarnojson = require('./Components/GravarnaDb.js')
 //
 const porta = 3001;
 //
@@ -38,7 +38,6 @@ client.on('message', message => {
     AutoResposta(message, client)
     console.log(message.from.substring(0, 13));
     console.log(message.body)
-
 });
 
 client.initialize();

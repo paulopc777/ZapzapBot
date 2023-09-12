@@ -1,11 +1,13 @@
 {
     "PerguntaAuto": [
         "ping",
-        "bom dia"
+        "bom dia",
+        "video"
     ],
     "RespostaAuto": [
         "Pong",
-        "Bom dia como posso ajudar ?"
+        "Bom dia como posso ajudar ?",
+        "Banana"
     ],
     "ProdutosBanidos": [
         "item/318081407304941",

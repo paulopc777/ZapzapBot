@@ -12,8 +12,7 @@ async function Gravarnojson(Pergunta: string, Respota: string, tipo: string) {
         if (err) {
           console.error('Erro ao ler o arquivo JSON:', err);
           return;
-        }
-        try {
+        } try {
             let jsonData = JSON.parse(data);
         
             if (tipo === "auto") {

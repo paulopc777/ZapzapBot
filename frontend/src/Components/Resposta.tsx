@@ -13,9 +13,9 @@ function Resposta() {
         console.log(JSON.stringify(Resposta))
 
         await axios.post('http://localhost:3001/recauto', {
-            pergunta: Pergunta,
-            resposta: Resposta,
-            tipo: Tipo
+            pergunta: Pergunta.toLowerCase(),
+            resposta: Resposta.toLowerCase(),
+            tipo: Tipo.toLowerCase()
         })
             .then(function (response) {
                 console.log(response);
