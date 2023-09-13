@@ -35,9 +35,11 @@ client.on('ready', () => {
 });
 //Respostar altomaticas
 client.on('message', message => {
+
     AutoResposta(message, client)
     console.log(message.from.substring(0, 13));
     console.log(message.body)
+    
 });
 
 client.initialize();
@@ -65,13 +67,11 @@ app.post('/off', async (req, res) => {
 })
 app.post('/send', async (req, res) => {
     let { message, number } = req.body;
-    client.sendMessage()
+    client.sendMessage(number,message);
     res.send('ok')
 })
 app.post('/recauto', async (req, res) => {
-
     const { pergunta, resposta, tipo } = req.body;
-    
     await Gravarnojson(pergunta, resposta, tipo)
 })
 app.listen(porta, () => {

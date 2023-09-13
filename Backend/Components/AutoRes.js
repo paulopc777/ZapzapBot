@@ -35,19 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var Buttons = require('whatsapp-web.js').Buttons;
-var JsonTexto = require('../db/RespostaTexto.json');
+var fs = require('fs');
+var path = require('path');
+//let JsonTexto = require('../db/RespostaTexto.json');
 var TimeDelay = 8000; //Delay de 8s
 var delay = function () {
     return new Promise(function (resolve) { return setTimeout(resolve, TimeDelay); });
 };
-var db = JSON.stringify(JsonTexto);
-var ddb = JSON.parse(db);
-var PerguntaAuto = ddb.PerguntaAuto;
-var RespostaAuto = ddb.RespostaAuto;
-var PerguntaConten = ddb.PerguntaContem;
-var RespostaConten = ddb.RespostaContem;
-var PerguntaBanido = ddb.ProdutosBanidos;
-var RespostaBanido = ddb.RespostaBanido;
 function AutoResposta(message, client) {
     return __awaiter(this, void 0, void 0, function () {
         //message.body.toLowerCase()
@@ -78,8 +72,17 @@ function AutoResposta(message, client) {
                 }
             }
         }
-        var RespostaEnviada, Mensagem;
+        var url, JsonTexto, ddb, PerguntaAuto, RespostaAuto, PerguntaConten, RespostaConten, PerguntaBanido, RespostaBanido, RespostaEnviada, Mensagem;
         return __generator(this, function (_a) {
+            url = path.join(__dirname, '../db/RespostaTexto.json');
+            JsonTexto = fs.readFileSync(url, 'utf-8');
+            ddb = JSON.parse(JsonTexto);
+            PerguntaAuto = ddb.PerguntaAuto;
+            RespostaAuto = ddb.RespostaAuto;
+            PerguntaConten = ddb.PerguntaContem;
+            RespostaConten = ddb.RespostaContem;
+            PerguntaBanido = ddb.ProdutosBanidos;
+            RespostaBanido = ddb.RespostaBanido;
             RespostaEnviada = false;
             Mensagem = message.body.toLowerCase();
             if (RespostaEnviada == false) {

@@ -1,26 +1,31 @@
 const { Buttons } = require('whatsapp-web.js');
-let JsonTexto = require('../db/RespostaTexto.json');
-
+const fs = require('fs');
+const path = require('path');
+//let JsonTexto = require('../db/RespostaTexto.json');
 const TimeDelay = 8000;//Delay de 8s
 const delay = () => {
     return new Promise(resolve => setTimeout(resolve, TimeDelay));
 }
 
 
-const db = JSON.stringify(JsonTexto)
-const ddb = JSON.parse(db)
-
-const PerguntaAuto = ddb.PerguntaAuto
-const RespostaAuto = ddb.RespostaAuto
-const PerguntaConten = ddb.PerguntaContem
-const RespostaConten = ddb.RespostaContem
-const PerguntaBanido = ddb.ProdutosBanidos
-const RespostaBanido = ddb.RespostaBanido
-
 async function AutoResposta(message: any, client: any) {
-
+////
+    const url =  path.join(__dirname, '../db/RespostaTexto.json');
+    const JsonTexto = fs.readFileSync(url, 'utf-8');
+    const ddb = JSON.parse(JsonTexto)
+    
+    
+    const PerguntaAuto = ddb.PerguntaAuto
+    const RespostaAuto = ddb.RespostaAuto
+    const PerguntaConten = ddb.PerguntaContem
+    const RespostaConten = ddb.RespostaContem
+    const PerguntaBanido = ddb.ProdutosBanidos
+    const RespostaBanido = ddb.RespostaBanido
+    
+///
     let RespostaEnviada: boolean = false;
     let Mensagem = message.body.toLowerCase()
+
     //message.body.toLowerCase()
     function RespostaA(Mensagem: string, message: any) {
         for (let i = 0; i < PerguntaAuto.length; i++) {
