@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const { createServer } = require('node:http');
+const Gravarnojson = require('./Components/GravarnaDb')
 
 let status = 'Off';
 

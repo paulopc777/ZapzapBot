@@ -10,9 +10,19 @@ const client = new Client({
     authStrategy: new LocalAuth()
 });
 
+///Server Express
+serverHtttp.listen(3001, () => {
+    console.log(`Server rodando na ${3001}`);
+});
+
+socketServer.listen(3002, () => {
+    console.log('Socket rodando 3002')
+})
+
 client.on('qr', qr => {
     //Gera o Qr code para Ser lido no celular
-    io.emit('qr',qr);
+    io.emit('qr', qr);
+
 });
 client.on('ready', () => {
     qrcodesave = 'Logado';
@@ -25,16 +35,7 @@ client.on('message', message => {
     console.log(message.body)
 
 });
+
 client.initialize();
-
-
-///Server Express
-serverHtttp.listen(3001, () => {
-    console.log(`Server rodando na ${3001}`);
-});
-
-socketServer.listen(8080, () => {
-    console.log('Socket rodando 8080')
-})
 
 

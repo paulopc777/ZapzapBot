@@ -2,12 +2,14 @@
     "PerguntaAuto": [
         "ping",
         "bom dia",
-        "ban"
+        "ban",
+        "qual valor do motor da seg ?"
     ],
     "RespostaAuto": [
         "Pong",
         "Bom dia como posso ajudar ?",
-        "Mac"
+        "Mac",
+        "ola, o kit  motor da *seg* com *3m de cremaleira* *2 controles* fica *r$470* a _vista_"
     ],
     "ProdutosBanidos": [
         "item/318081407304941",
@@ -19,10 +21,12 @@
     ],
     "PerguntaContem": [
         "esse item",
-        "esse produto"
+        "esse produto",
+        "motor da seg"
     ],
     "RespostaContem": [
         "Sim está disponivel tem interesse ?",
-        "Sim está disponivel tem interesse ?"
+        "Sim está disponivel tem interesse ?",
+        "ola, o kit  motor da *seg* com *3m de cremaleira* *2 controles* fica *r$470* a _vista_"
     ]
 }
