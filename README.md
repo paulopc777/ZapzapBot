@@ -13,6 +13,7 @@
    * Produtos Banidos com resposta altomatica
 
 
+
 **Backend:**
 
 - Back 100% funcional
@@ -21,8 +22,4 @@
 - Rota para para ver respostas ja definidas
 - Rota de status 
 - Banco de dados ainda em Json
-  
-
-
-
 

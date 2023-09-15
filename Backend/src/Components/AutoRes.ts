@@ -9,20 +9,20 @@ const delay = () => {
 
 
 async function AutoResposta(message: any, client: any) {
-////
-    const url =  path.join(__dirname, '../db/RespostaTexto.json');
+    ////
+    const url = path.join(__dirname, '../db/RespostaTexto.json');
     const JsonTexto = fs.readFileSync(url, 'utf-8');
     const ddb = JSON.parse(JsonTexto)
-    
-    
+
+
     const PerguntaAuto = ddb.PerguntaAuto
     const RespostaAuto = ddb.RespostaAuto
     const PerguntaConten = ddb.PerguntaContem
     const RespostaConten = ddb.RespostaContem
     const PerguntaBanido = ddb.ProdutosBanidos
     const RespostaBanido = ddb.RespostaBanido
-    
-///
+
+    ///
     let RespostaEnviada: boolean = false;
     let Mensagem = message.body.toLowerCase()
 

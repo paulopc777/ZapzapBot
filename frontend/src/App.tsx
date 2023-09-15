@@ -4,11 +4,13 @@ import Resposta from "./Components/Resposta";
 import Header from "./Components/Header";
 import StatusQr from './Components/StatusQR'
 import './App.css';
-import Onff from "./Components/on";
+import Onff from "./Components/StatusQR";
+
+
 function App() {
 
   return (
-    <>
+    <div>
       <Header />
       <main>
         <Routes>
@@ -17,7 +19,7 @@ function App() {
           <Route path="/status" element={<Onff />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 
